@@ -9,8 +9,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+    // Apply saved theme before paint to avoid a flash of the wrong color.
+    (function () {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
 </head>
 <body>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
+    <span class="icon-sun" aria-hidden="true">☀︎</span>
+    <span class="icon-moon" aria-hidden="true">☾</span>
+  </button>
+
   <main class="container">
     <!-- Intro: two columns, photo on the right -->
     <section class="intro">
@@ -69,5 +83,24 @@
       <a href="https://www.linkedin.com/in/yingshan-susan-wang-551459260/" target="_blank" rel="noopener">LinkedIn</a>
     </footer>
   </main>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("theme-toggle");
+      var root = document.documentElement;
+
+      function currentTheme() {
+        var attr = root.getAttribute("data-theme");
+        if (attr) return attr;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      btn.addEventListener("click", function () {
+        var next = currentTheme() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+    })();
+  </script>
 </body>
 </html>
