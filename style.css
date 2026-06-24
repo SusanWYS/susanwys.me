@@ -9,7 +9,7 @@
 /* Dark values reused by both the system default and an explicit toggle. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #111827; /* gray-900 */
+    --bg: #161410; /* matches black.png */
     --text: #f3f4f6; /* gray-100 */
     --muted: #9ca3af; /* gray-400 */
     --accent: #e2879c;
@@ -18,7 +18,7 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #111827;
+  --bg: #161410; /* matches black.png */
   --text: #f3f4f6;
   --muted: #9ca3af;
   --accent: #e2879c;
