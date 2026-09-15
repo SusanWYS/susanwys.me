@@ -220,6 +220,12 @@ a:hover {
   color: var(--muted);
 }
 
+.friend-link {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 600px) {
   body {
@@ -244,5 +250,9 @@ a:hover {
 
   .contact {
     justify-content: center;
+  }
+
+  .friend-link {
+    text-align: center;
   }
 }
